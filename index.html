@@ -1,142 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户路径流转图集合</title>
+    <title>User Path Analysis</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        .tab:hover {
-            background-color: #e9ecef;
-        }
-        .tab.active {
-            background-color: #007bff;
-            color: white;
-            border-color: #0056b3;
-        }
-        .chart-container {
-            width: 100%;
-            height: 900px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            overflow: hidden;
-            background-color: white;
-        }
-        .tab-content {
-            display: none;
-            width: 100%;
-            height: 100%;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .description {
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            line-height: 1.6;
-        }
-        .description ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-        .description li {
-            margin: 5px 0;
-        }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 10px; }
+        .description { color: #666; margin-bottom: 20px; }
+        .tab-buttons { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab-button { padding: 10px 20px; border: none; background-color: #eee; cursor: pointer; border-radius: 4px; font-size: 14px; transition: background-color 0.3s; }
+        .tab-button.active { background-color: #007bff; color: white; }
+        .tab-content { display: none; width: 100%; height: 800px; }
+        .tab-content.active { display: block; }
+        iframe { width: 100%; height: 100%; border: none; border-radius: 4px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>用户路径流转图集合</h1>
-        <div class="description">
-            <p>此页面展示了不同版本的用户路径流转图。每个图表都展示了用户在不同步骤之间的流转情况。</p>
-            <p>图表支持以下交互操作：</p>
-            <ul>
-                <li>可以拖拽节点调整布局，方便查看</li>
-                <li>悬停在节点或连线上可查看详细信息</li>
-                <li>图表右侧显示Top5流转路径的统计信息</li>
-                <li>点击上方标签切换不同版本的图表</li>
-            </ul>
+        <h1>User Path Analysis Dashboard</h1>
+        <p class="description">Interactive visualization of user path flows using Sankey diagrams. Click the tabs below to view different versions of the analysis.</p>
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="showTab(0)">Version 1</button>
+            <button class="tab-button" onclick="showTab(1)">Version 2</button>
+            <button class="tab-button" onclick="showTab(2)">Version 3</button>
+            <button class="tab-button" onclick="showTab(3)">Version 4</button>
+            <button class="tab-button" onclick="showTab(4)">Version 5</button>
+            <button class="tab-button" onclick="showTab(5)">Version 6</button>
         </div>
-        <div class="tabs">
-            <button class="tab active" onclick="showTab(0)">原始版本</button>
-            <button class="tab" onclick="showTab(1)">版本1</button>
-            <button class="tab" onclick="showTab(2)">版本2</button>
-            <button class="tab" onclick="showTab(3)">版本3</button>
+        <div class="tab-content active">
+            <iframe src="new_user_path_sankey.html"></iframe>
         </div>
-        <div class="chart-container">
-            <div class="tab-content active">
-                <iframe src="new_user_path_sankey.html"></iframe>
-            </div>
-            <div class="tab-content">
-                <iframe src="new_user_path_sankey1.html"></iframe>
-            </div>
-            <div class="tab-content">
-                <iframe src="new_user_path_sankey2.html"></iframe>
-            </div>
-            <div class="tab-content">
-                <iframe src="new_user_path_sankey3.html"></iframe>
-            </div>
+        <div class="tab-content">
+            <iframe src="new_user_path_sankey1.html"></iframe>
+        </div>
+        <div class="tab-content">
+            <iframe src="new_user_path_sankey2.html"></iframe>
+        </div>
+        <div class="tab-content">
+            <iframe src="new_user_path_sankey3.html"></iframe>
+        </div>
+        <div class="tab-content">
+            <iframe src="new_user_path_sankey4.html"></iframe>
+        </div>
+        <div class="tab-content">
+            <iframe src="user_path_sankey5.html"></iframe>
         </div>
     </div>
     <script>
         function showTab(index) {
-            // 移除所有active类
-            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            
-            // 添加active类到选中的标签
-            document.querySelectorAll('.tab')[index].classList.add('active');
-            document.querySelectorAll('.tab-content')[index].classList.add('active');
+            const tabContents = document.getElementsByClassName('tab-content');
+            const tabButtons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+                tabButtons[i].classList.remove('active');
+            }
+            tabContents[index].classList.add('active');
+            tabButtons[index].classList.add('active');
         }
-
-        // 确保iframe内容加载完成后再显示
-        document.querySelectorAll('iframe').forEach(iframe => {
-            iframe.onload = function() {
-                this.style.visibility = 'visible';
-            };
-            iframe.style.visibility = 'hidden';
-        });
     </script>
 </body>
-</html>
+</html> 
